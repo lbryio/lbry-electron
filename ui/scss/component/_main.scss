@@ -169,6 +169,7 @@
 }
 
 .main--livestream {
+  @extend .main--theater-mode;
   width: calc(100vw - var(--spacing-xs) * 2);
   margin: var(--spacing-xs);
 

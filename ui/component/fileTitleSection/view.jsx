@@ -82,7 +82,7 @@ function FileTitleSection(props: Props) {
           ) : (
             <div className="section">
               <FileAuthor uri={uri} />
-              <FileDescription uri={uri} />
+              <FileDescription uri={uri} livestream={livestream} />
             </div>
           )
         }
