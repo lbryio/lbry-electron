@@ -38,6 +38,7 @@ type Props = {
   livestream?: boolean,
   toast: (string) => void,
   claimIsMine: boolean,
+  setjustCommented: (boolean) => void
 };
 
 export function CommentCreate(props: Props) {
@@ -56,6 +57,7 @@ export function CommentCreate(props: Props) {
     livestream,
     toast,
     claimIsMine,
+    setjustCommented
   } = props;
   const buttonref: ElementRef<any> = React.useRef();
   const {
@@ -112,6 +114,7 @@ export function CommentCreate(props: Props) {
         if (res && res.signature) {
           setCommentValue('');
           setLastCommentTime(Date.now());
+          setjustCommented(true);
 
           if (onDoneReplying) {
             onDoneReplying();
