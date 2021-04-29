@@ -1,14 +1,12 @@
 // @flow
 import * as ICONS from 'constants/icons';
 import * as PAGES from 'constants/pages';
-import { SITE_NAME, SIMPLE_SITE, DOMAIN } from 'config';
+import { SITE_NAME, SIMPLE_SITE } from 'config';
 import React from 'react';
 import Page from 'component/page';
 import Button from 'component/button';
 import ClaimTilesDiscover from 'component/claimTilesDiscover';
 import Icon from 'component/common/icon';
-import I18nMessage from 'component/i18nMessage';
-import LbcSymbol from 'component/common/lbc-symbol';
 import useGetLivestreams from 'effects/use-get-livestreams';
 
 type Props = {
@@ -39,33 +37,24 @@ function HomePage(props: Props) {
 
   return (
     <Page fullWidthPage>
-      {IS_WEB && DOMAIN === 'lbry.tv' && (
+      {IS_WEB && (
         <div className="notice-message--loud">
-          <h1 className="section__title">
-            <I18nMessage
-              tokens={{
-                odysee: <Button label={__('odysee.com')} button="link" href="https://odysee.com?src=lbrytv-retired" />,
-              }}
-            >
-              lbry.tv is being retired in favor of %odysee%
-            </I18nMessage>
-          </h1>
+          <h1 className="section__title">PRs in this instance</h1>
           <p className="section__subtitle">
-            <I18nMessage
-              tokens={{
-                desktop_app: (
-                  <Button label={__('desktop app')} button="link" href="https://lbry.com/get?src=lbrytv-retired" />
-                ),
-                odysee: <Button label={__('odysee.com')} button="link" href="https://odysee.com?src=lbrytv-retired" />,
-                credits: <LbcSymbol />,
-              }}
-            >
-              You will have to switch to the %desktop_app% or %odysee% in the near future. Your existing login details
-              will work on %odysee% and all of your %credits% and other settings will be there.
-            </I18nMessage>
+            <ul>
+              <li>Odysee [84f2e616] +</li>
+              <li>
+                <Button
+                  label={'Muted Words Settings Page #5934'}
+                  button="link"
+                  href="https://github.com/lbryio/lbry-desktop/pull/5934"
+                />
+              </li>
+            </ul>
           </p>
         </div>
       )}
+      <br />
 
       {!SIMPLE_SITE && (authenticated || !IS_WEB) && !subscribedChannels.length && (
         <div className="notice-message">

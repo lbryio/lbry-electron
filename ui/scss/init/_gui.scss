@@ -382,13 +382,10 @@ textarea {
 
 .notice-message--loud {
   @extend .notice-message;
-  background-color: #fef1f6;
-  color: var(--color-black);
-  font-weight: bold;
-
-  .button {
-    color: #fa6165;
-  }
+  background-color: var(--color-card-background-highlighted);
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-m);
 }
 
 .privacy-img {
