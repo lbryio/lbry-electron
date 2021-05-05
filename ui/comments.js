@@ -11,6 +11,11 @@ const Comments = {
   comment_list: (params: CommentListParams) => fetchCommentsApi('comment.List', params),
   comment_abandon: (params: CommentAbandonParams) => fetchCommentsApi('comment.Abandon', params),
   comment_create: (params: CommentCreateParams) => fetchCommentsApi('comment.Create', params),
+  setting_list: (params: SettingsParams) => fetchCommentsApi('setting.List', params),
+  setting_block_word: (params: BlockWordParams) => fetchCommentsApi('setting.BlockWord', params),
+  setting_unblock_word: (params: BlockWordParams) => fetchCommentsApi('setting.UnBlockWord', params),
+  setting_list_blocked_words: (params: SettingsParams) => fetchCommentsApi('setting.ListBlockedWords', params),
+  setting_update: (params: UpdateSettingsParams) => fetchCommentsApi('setting.Update', params),
   super_list: (params: SuperListParams) => fetchCommentsApi('comment.SuperChatList', params),
 };
 
@@ -35,7 +40,12 @@ function fetchCommentsApi(method: string, params: {}) {
 
   return fetch(url, options)
     .then((res) => res.json())
-    .then((res) => res.result);
+    .then((res) => {
+      if (res.error) {
+        throw new Error(res.error.message);
+      }
+      return res.result;
+    });
 }
 
 export default Comments;

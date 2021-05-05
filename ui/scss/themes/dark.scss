@@ -22,6 +22,12 @@
   --color-text-error: var(--color-danger);
   --color-error: var(--color-danger-alt);
 
+  // Tags (words)
+  --color-tag-words: var(--color-text);
+  --color-tag-words-bg: var(--color-gray-5);
+  --color-tag-words-hover: var(--color-white);
+  --color-tag-words-bg-hover: var(--color-gray-4);
+
   // Header
   --color-header-background: var(--color-gray-8);
   --color-header-button: var(--color-gray-7);
