@@ -143,6 +143,7 @@ export default function ClaimList(props: Props) {
         'claim-list--small': type === 'small',
       })}
     >
+      */}
       {header !== false && (
         <React.Fragment>
           {header && (
@@ -170,7 +171,6 @@ export default function ClaimList(props: Props) {
           )}
         </React.Fragment>
       )}
-
       {urisLength > 0 && (
         <ul
           className={classnames('ul--no-style', {
@@ -203,7 +203,6 @@ export default function ClaimList(props: Props) {
           ))}
         </ul>
       )}
-
       {!timedOut && urisLength === 0 && !loading && <div className="empty empty--centered">{empty || noResultMsg}</div>}
       {!loading && timedOut && timedOutMessage && <div className="empty empty--centered">{timedOutMessage}</div>}
     </section>
